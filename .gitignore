@@ -1,0 +1,8 @@
+/.idea/
+
+/advance-feature/target/
+/common-consumer/target/
+/direct-producer/target/
+/fanout-producer/target/
+/topic-producer/target/
+/common-api/target/

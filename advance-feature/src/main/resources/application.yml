@@ -1,0 +1,37 @@
+server:
+  port: 8084
+spring:
+  #消息中间件Rabbit配置
+  rabbitmq:
+    host: 112.74.184.184
+    port: 443
+    username: admin
+    password: admin
+    virtualHost: /
+    publisherReturns: true
+    publisherConfirmType: CORRELATED
+  #数据库配置
+  datasource:
+    username: root
+    password: miracle@123456
+    url: jdbc:mysql://112.74.184.184:3306/rabbit_db?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    #HikariDataSource是Spring推荐的数据库连接池，号称最快的连接池
+    type: com.zaxxer.hikari.HikariDataSource
+  #缓存中间件Redis配置
+#  redis:
+#    host: 112.74.184.184
+#    port: 6379
+#mybatis配置
+mybatis:
+  #类型别名
+  type-aliases-package: com.miracle.advancefeature.dt.repository
+  #执行器类型：SIMPLE（普通执行器），REUSE（预处理语句），BATCH（不仅重用语句还会执行批量更新）
+  executorType: REUSE
+  #mapper文件路径配置
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    #开启缓存
+    cacheEnabled: true
+    #开启驼峰式命名匹配
+    mapUnderscoreToCamelCase: true
